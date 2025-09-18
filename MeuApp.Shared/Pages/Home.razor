@@ -1,0 +1,55 @@
+﻿@page "/"
+@* @using MeuApp.Shared.Services *@
+@* @inject IFormFactor FormFactor *@
+
+<PageTitle>Home</PageTitle>
+
+<div class="d-flex align-center">
+    <img style="width:40px; height:40px; object-fit:cover; margin-right: 10px;" src="_content/MeuApp.Shared/logo.png" alt="">
+    <h1>Nucleu Ominis</h1>
+</div>
+
+@if(!ExibirDados)
+{
+    <h4 style="margin: 40px 10px;">Inserção de dados (teste)</h4>
+
+    <div class="d-flex flex-column" style="max-width: 300px; margin: 0 10px;">
+        <label for="Nome">Nome:</label>
+        <input @bind="Nome" type="text" class="form-control" id="Nome" placeholder="Digite seu nome" />
+        
+        <label style="margin-top: 20px" for="Tel">Contato:</label>
+        <input @bind="Tel" type="tel" class="form-control" id="Tel" placeholder="(XX) XXXXX-XXXX" />
+
+        <button @onclick="Verificar" type="button" class="btn btn-primary" style="margin-top: 20px;">Verificar</button>
+    </div>
+}else
+{
+    <div class="d-flex flex-column" style="max-width: 300px; margin: 60px 10px; border-radius: 10px; box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.24); padding: 10px;">
+        <h3>Dados Inseridos</h3>
+
+        <p><strong>Nome:</strong> @Nome</p>
+        <p><strong>Contato:</strong> @Tel</p>
+
+        <button @onclick="Verificar" type="button" class="btn btn-secondary">Tentar novamente</button>
+    </div>
+}
+
+
+
+@* Welcome to your new app running on <em>@factor</em> using <em>@platform</em>. *@
+
+@code {
+    private string Nome = "";
+    private string Tel = "";
+
+    private bool ExibirDados = false;
+
+    private void Verificar()
+    {
+        ExibirDados = !ExibirDados;
+    }
+
+    @* private string factor => FormFactor.GetFormFactor();
+
+    private string platform => FormFactor.GetPlatform(); *@
+}
