@@ -1,0 +1,47 @@
+# Build results
+bin/
+obj/
+publish/
+out/
+artifacts/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS Code
+.vscode/
+.vs
+
+# Rider
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Node modules (caso use npm/yarn para CSS/JS)
+node_modules/
+
+# Arquivos de configuração temporários
+*.swp
+*.tmp
+
+# Arquivos de pacotes NuGet
+*.nupkg
+.nuget/
+
+# Arquivos de publicação do Blazor
+wwwroot/dist/
+
+# Arquivos de build do MAUI
+platforms/
+AppPackages/
