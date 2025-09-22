@@ -6,7 +6,7 @@
 
 <div class="d-flex align-center">
     <img style="width:40px; height:40px; object-fit:cover; margin-right: 10px;" src="_content/MeuApp.Shared/logo.png" alt="">
-    <h1>Nucleu Ominis</h1>
+    <h1>Nucleu Omnis</h1>
 </div>
 
 @if(!ExibirDados)
@@ -34,6 +34,37 @@
     </div>
 }
 
+<h4 class="mt-5">Consulta via CEP</h4>
+
+<div>
+    <div class="d-flex gap-2" style="max-width: 300px;">
+        <input @bind="cep" type="text" 
+        class="form-control @(consultouCep && !cepValido ? "is-invalid" : "")" 
+        placeholder="@( consultouCep && !cepValido ? "CEP inválido" : "Insira o CEP")" />
+
+        <button class="btn btn-success" @onclick="ConsultarCep">
+            @if(consultandoCep)
+            {
+                <i class="bi bi-browser-safari"></i>
+            }
+            else
+            {
+                <span>Consultar</span>
+            }
+        </button>
+    </div>
+    @if(cepValido)
+    {
+        <div class="my-3" style="max-width: 300px; border-radius: 10px; box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.24); padding: 10px;">
+            <h5>Endereço</h5>
+            <p><strong>Logradouro:</strong> @logradouro</p>
+            <p><strong>Bairro:</strong> @bairro</p>
+            <p><strong>Cidade:</strong> @localidade</p>
+            <p><strong>Estado:</strong> @uf</p>
+        </div>
+    }
+</div>
+
 
 
 @* Welcome to your new app running on <em>@factor</em> using <em>@platform</em>. *@
@@ -41,8 +72,56 @@
 @code {
     private string Nome = "";
     private string Tel = "";
-
     private bool ExibirDados = false;
+
+    private string cep = "";
+    private string logradouro = "";
+    private string bairro = "";
+    private string localidade = "";
+    private string uf = "";
+
+    private bool consultandoCep = false;
+
+    private bool consultouCep = false;
+    private bool cepValido = false;
+
+    private HttpClient client = new HttpClient();
+
+    private async Task ConsultarCep()
+    {
+        consultouCep = true;
+        
+        if(string.IsNullOrWhiteSpace(cep)){
+            cepValido = false;
+            return;
+        }
+
+        var response = await client.GetAsync($"https://viacep.com.br/ws/{cep}/json/");
+
+        if (response.IsSuccessStatusCode)
+        {
+            consultandoCep = true;
+
+            var dados = await response.Content.ReadFromJsonAsync<Endereco>();
+            if (dados != null)
+            {
+                logradouro = dados.Logradouro;
+                bairro = dados.Bairro;
+                localidade = dados.Localidade;
+                uf = dados.Uf;
+            }
+            
+            @* await Task.Delay(2000); // Simula um tempo de espera para a consulta *@
+
+            consultandoCep = false;
+            cepValido = true;
+        }else
+        {
+            cep = "";
+            cepValido = false;
+        }
+
+    }
 
     private void Verificar()
     {
