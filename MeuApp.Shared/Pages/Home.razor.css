@@ -1,0 +1,8 @@
+.bi-loading {
+  background-image: url('../icons/browser-safari.svg');
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
