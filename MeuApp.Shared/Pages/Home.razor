@@ -1,6 +1,6 @@
 ﻿@page "/"
-@* @using MeuApp.Shared.Services *@
-@* @inject IFormFactor FormFactor *@
+
+@using MeuApp.Shared.Components
 
 <PageTitle>Home</PageTitle>
 
@@ -56,26 +56,8 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="cepModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Endereço</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p><strong>CEP:</strong> @cep</p>
-                <p><strong>Logradouro:</strong> @logradouro</p>
-                <p><strong>Bairro:</strong> @bairro</p>
-                <p><strong>Cidade:</strong> @localidade</p>
-                <p><strong>Estado:</strong> @uf</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
-            </div>
-            </div>
-        </div>
-    </div>
+    <Modal cep="@cep" logradouro="@logradouro" bairro="@bairro" localidade="@localidade" uf="@uf" />
+
 </div>
 
 @inject IJSRuntime JS
@@ -95,7 +77,7 @@
     private string Nome = "";
     private string Tel = "";
     private bool ExibirDados = false;
-
+    
     private string cep = "";
     private string logradouro = "";
     private string bairro = "";
@@ -106,8 +88,6 @@
 
     private bool consultouCep = false;
     private bool cepValido = false;
-
-    private HttpClient client = new HttpClient();
 
     private async Task ConsultarCep()
     {
@@ -120,7 +100,9 @@
 
         consultandoCep = true;
 
-        var response = await client.GetAsync($"https://viacep.com.br/ws/{cep}/json/");
+        HttpClient? client = new HttpClient();
+
+        HttpResponseMessage? response = await client.GetAsync($"https://viacep.com.br/ws/{cep}/json/");
 
         if(!response.IsSuccessStatusCode)
         {
@@ -138,8 +120,6 @@
                 uf = dados.Uf;
             }
             
-            await Task.Delay(2000); // Simula um tempo de espera para a consulta
-
             cepValido = true;
             await JS.InvokeVoidAsync("showBootstrapModal", "cepModal");
         }

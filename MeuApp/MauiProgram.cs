@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
-using MeuApp.Shared.Services;
-using MeuApp.Services;
+//using MeuApp.Shared.Services;
+//using MeuApp.Services;
 
 namespace MeuApp;
 
@@ -17,7 +17,7 @@ public static class MauiProgram
             });
 
         // Add device-specific services used by the MeuApp.Shared project
-        builder.Services.AddSingleton<IFormFactor, FormFactor>();
+        //builder.Services.AddSingleton<IFormFactor, FormFactor>();
 
         builder.Services.AddMauiBlazorWebView();
 

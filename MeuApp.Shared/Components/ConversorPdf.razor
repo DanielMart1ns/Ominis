@@ -1,27 +1,11 @@
-﻿@page "/counter"
+<h1>Conversor DOCs em PDF</h1>
 
-<PageTitle>Counter</PageTitle>
-
-<h1>Conversor DOCx em PDF</h1>
-
-<div class="mt-4 d-flex justify-content-between align-items-center gap-4" style="max-width: 600px;">
+<div class="mt-4 d-flex justify-content-between align-items-center gap-4">
     <InputFile class="form-control" OnChange="EnviarDocx" accept=".docx" placeholder="@(fullPdfBase64 != null ? file?.Name : "Nenhum arquivo selecionado")"/>
-
-    @if (fullPdfBase64 != null)
-    {
-        <button type="button" class="btn-close" @onclick="FecharPdf"/>
-    }
+    <button type="button" class="btn-close" @onclick="FecharPdf"/>
 </div>
 
-@if(isConverting && fullPdfBase64 == null)
-{
-    <div>
-        <div class="spinner-grow mt-4 text-primary" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-        <p>Convertendo, aguarde...</p>
-    </div>
-}else if((pdfPreviewBase64 != null || fullPdfBase64 != null) && !fullPdfBase64.Contains("Erro ao gerar pdf"))
+@if ((pdfPreviewBase64 != null || fullPdfBase64 != null) && !fullPdfBase64.Contains("Erro ao gerar pdf"))
 {
     @if (moreThan1MB)
     {
@@ -57,8 +41,6 @@
 
     private bool moreThan1MB;
 
-    private bool isConverting = false;
-
     private async Task EnviarDocx(InputFileChangeEventArgs e)
     {
         file = e.File;
@@ -67,9 +49,6 @@
         content.Add(new StreamContent(stream), "file", file.Name);
 
         moreThan1MB = file.Size > 1 * 1024 * 1024;
-
-        isConverting = true;
-        fullPdfBase64 = null;
 
         HttpClient client = new HttpClient();
 
@@ -85,12 +64,13 @@
                 var pdfBytes = await response.Content.ReadAsByteArrayAsync();
                 fullPdfBase64 = Convert.ToBase64String(pdfBytes);
             }
+
+            @* var pdfBytes = await response.Content.ReadAsByteArrayAsync();
+            pdfBase64 = Convert.ToBase64String(pdfBytes); *@
         }
         else{
             fullPdfBase64 = $"Erro ao gerar pdf: Erro {response.StatusCode}";
         }
-
-        isConverting = false;
     }
 
     private void FecharPdf()

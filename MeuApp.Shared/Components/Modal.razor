@@ -1,0 +1,29 @@
+<!-- Modal -->
+    <div class="modal fade" id="cepModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Endereço</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>CEP:</strong> @cep</p>
+                <p><strong>Logradouro:</strong> @logradouro</p>
+                <p><strong>Bairro:</strong> @bairro</p>
+                <p><strong>Cidade:</strong> @localidade</p>
+                <p><strong>Estado:</strong> @uf</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+@code {
+    [Parameter] public string cep { get; set; }
+    [Parameter] public string logradouro { get; set; }
+    [Parameter] public string bairro { get; set; }
+    [Parameter] public string localidade { get; set; }
+    [Parameter] public string uf { get; set; }
+}

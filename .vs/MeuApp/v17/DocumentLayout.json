@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\danie\\Desktop\\Projetos\\Nucleu\\Maiu-Hybrid\\MeuApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1AA5F22B-62F8-414F-AE50-635E99EB3F76}|MeuApp.Shared\\MeuApp.Shared.csproj|c:\\users\\danie\\desktop\\projetos\\nucleu\\maiu-hybrid\\meuapp\\meuapp.shared\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1AA5F22B-62F8-414F-AE50-635E99EB3F76}|MeuApp.Shared\\MeuApp.Shared.csproj|solutionrelative:meuapp.shared\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{E3338D37-FF50-4A34-96BD-2716ED93F1E2}|MeuApp\\MeuApp.csproj|c:\\users\\danie\\desktop\\projetos\\nucleu\\maiu-hybrid\\meuapp\\meuapp\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3338D37-FF50-4A34-96BD-2716ED93F1E2}|MeuApp\\MeuApp.csproj|solutionrelative:meuapp\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2800ABA-8C19-4553-A552-BFF679BEB039}|MeuApp.Web\\MeuApp.Web.csproj|c:\\users\\danie\\desktop\\projetos\\nucleu\\maiu-hybrid\\meuapp\\meuapp.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2800ABA-8C19-4553-A552-BFF679BEB039}|MeuApp.Web\\MeuApp.Web.csproj|solutionrelative:meuapp.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +18,33 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Desktop\\Projetos\\Nucleu\\Maiu-Hybrid\\MeuApp\\MeuApp.Web\\Program.cs",
+              "RelativeDocumentMoniker": "MeuApp.Web\\Program.cs",
+              "ToolTip": "C:\\Users\\danie\\Desktop\\Projetos\\Nucleu\\Maiu-Hybrid\\MeuApp\\MeuApp.Web\\Program.cs",
+              "RelativeToolTip": "MeuApp.Web\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-26T14:11:33.199Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Home.razor",
-              "DocumentMoniker": "C:\\Users\\danie\\Desktop\\Projetos\\Nucleu\\Maiu-Hybrid\\MeuApp\\MeuApp.Shared\\Pages\\Home.razor",
-              "RelativeDocumentMoniker": "MeuApp.Shared\\Pages\\Home.razor",
-              "ToolTip": "C:\\Users\\danie\\Desktop\\Projetos\\Nucleu\\Maiu-Hybrid\\MeuApp\\MeuApp.Shared\\Pages\\Home.razor",
-              "RelativeToolTip": "MeuApp.Shared\\Pages\\Home.razor",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB0AAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-16T15:40:41.064Z",
+              "Title": "MauiProgram.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Desktop\\Projetos\\Nucleu\\Maiu-Hybrid\\MeuApp\\MeuApp\\MauiProgram.cs",
+              "RelativeDocumentMoniker": "MeuApp\\MauiProgram.cs",
+              "ToolTip": "C:\\Users\\danie\\Desktop\\Projetos\\Nucleu\\Maiu-Hybrid\\MeuApp\\MeuApp\\MauiProgram.cs",
+              "RelativeToolTip": "MeuApp\\MauiProgram.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-26T14:10:53.847Z",
               "EditorCaption": ""
             }
           ]
