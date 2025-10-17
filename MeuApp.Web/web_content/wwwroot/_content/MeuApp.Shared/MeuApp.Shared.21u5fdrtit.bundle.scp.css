@@ -19,11 +19,16 @@
 
 main[b-vyk1y22yg4] {
   flex: 1;
+  padding-top: 72px;
+
+  @media (min-width: 641px) {
+    padding-top: 0;[b-vyk1y22yg4]
+  }
 }
 
-.sidebar[b-vyk1y22yg4] {
+/* .sidebar {
   background-image: linear-gradient(180deg, #052767 0%, #d6d6d6 160%);
-}
+} */
 
 .top-row[b-vyk1y22yg4] {
   background-color: #f7f7f7;
@@ -62,7 +67,7 @@ main[b-vyk1y22yg4] {
   }
 }
 
-@media (min-width: 641px) {
+@media (min-width: 768px) {
   .page[b-vyk1y22yg4] {
     flex-direction: row;
   }
@@ -118,18 +123,32 @@ main[b-vyk1y22yg4] {
   cursor: pointer;
   width: 3.5rem;
   height: 2.5rem;
-  color: #fff;
   position: absolute;
   top: 0.5rem;
   right: 1rem;
+  box-shadow: 0 0 0 0;
+  border: none;
   border-radius: 10px 0 10px 0;
   background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")
-    no-repeat center/1.75rem rgba(255, 255, 255, 0.036);
+    no-repeat center/1.75rem rgba(0, 0, 0, 0);
   transition: all 0.2s ease-in-out;
 }
 
 .navbar[b-33rwcn1kqb] {
-  background-color: #052767 !important;
+  background-color: #011b4b !important;
+}
+
+.nav-scrollable[b-33rwcn1kqb] {
+  display: block;
+  background-image: linear-gradient(180deg, #052767 0%, #d6d6d6 160%);
+
+  /* Allow sidebar to scroll for tall menus */
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.offcanvas[b-33rwcn1kqb] {
+  background-image: linear-gradient(180deg, #052767 0%, #d6d6d6 160%);
 }
 
 .navbar-toggler:checked[b-33rwcn1kqb] {
@@ -184,29 +203,4 @@ main[b-vyk1y22yg4] {
 .nav-item[b-33rwcn1kqb]  .nav-link:hover {
   background-color: rgba(255, 255, 255, 0.1);
   color: white;
-}
-
-.nav-scrollable[b-33rwcn1kqb] {
-  display: none;
-  /* transition: all 0.2s ease-in-out; */
-}
-
-.navbar-toggler:checked ~ .nav-scrollable[b-33rwcn1kqb] {
-  display: block;
-  /* transition: all 0.2s ease-in-out; */
-}
-
-@media (min-width: 641px) {
-  .navbar-toggler[b-33rwcn1kqb] {
-    display: none;
-  }
-
-  .nav-scrollable[b-33rwcn1kqb] {
-    /* Never collapse the sidebar for wide screens */
-    display: block;
-
-    /* Allow sidebar to scroll for tall menus */
-    height: calc(100vh - 3.5rem);
-    overflow-y: auto;
-  }
 }
