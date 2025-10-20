@@ -1,0 +1,53 @@
+<div class="p-3" style="background-color: #daf4ff; font-family: Quicksand, sanserif;">
+    <h5>NOTAS DE ATUALIZAÇÃO</h5>
+
+    <button class="btn btn-primary mt-3 d-flex align-items-center gap-2" data-bs-toggle="collapse" data-bs-target="#detalhesDeImplementacao" aria-expanded="false" aria-controls="detalhesDeImplementacao" @onclick="verProgresso">
+        @if(!exibirLista)
+        {
+            <span>Ver progesso</span> <span class="bi bi-chevron-down"></span>
+        }
+        else
+        {
+            <span>Fechar</span> <span class="bi bi-chevron-up"></span>
+        }
+    </button>
+
+    <div class="collapse mt-3 ps-3" id="detalhesDeImplementacao">
+        <ul class="list-group gap-3">
+            <li>
+                <span class="fw-semibold">17.09.2025</span> - Inserção de informações básica (nome e contato) para teste, renderição realizada nas 3 plataformas
+            </li>
+            <li>
+                <span class="fw-semibold">24.10.2025</span> - Integração com a API de CEP (ViaCEP) - Coleta de informações de localização
+            </li>
+            <li>
+                <span class="fw-semibold">01.10.2025</span> - Geração de PDFs personalizados para emissão de documentações corporativas (QuestPDF) e envio automatizado via E-mail e Whatsapp
+            </li>
+            <li>
+                <span class="fw-semibold">15.10.2025</span> - Inclusão de Dashboards modelos para análise de lucros baseado na venda de cada estabelecimento. (lógica de implementação de filtros e junção com dados reais a ser desenvolvido posteriormente)
+            </li>
+            <li>
+                <span class="fw-semibold">17.10.2025</span> - Criação de menu resposivo para o App Omnis
+            </li>
+        </ul>
+
+        <hr>
+
+        <p class="fs-5 fw-bold mt-3">O que está sendo feito no agora?</p>
+            
+        <p class="fw-semibold">• Integração com plataformas bancárias</p>
+
+        <a href="https://trello.com/b/RqKeu5SG/omnis-20" target="_blank" class="btn btn-light border-black d-flex align-items-center gap-2" style="max-width: 176px;">
+            Acessar tarefas <span class="bi bi-card-checklist"></span>
+        </a>
+    </div>
+</div>
+
+@code{
+    bool exibirLista = false;
+
+    private void verProgresso()
+    {
+        exibirLista = !exibirLista;
+    }
+}

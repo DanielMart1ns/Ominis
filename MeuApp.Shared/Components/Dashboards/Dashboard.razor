@@ -1,0 +1,50 @@
+@inject IJSRuntime JS
+
+<div style="max-width: 780px; width: 100%; margin-bottom: 28px;">
+  <div class="d-flex justify-content-center align-items-center gap-2">
+      <div style="width: 28px; height: 12px; background-color: rgba(38, 176, 79, 0.51); border-radius: 8px; border: 1px solid #1b6ec2;"></div>
+      <p class="mb-0 text-secondary">Vendas</p>
+  </div>
+  
+  <div class="container-dashboard">
+      <canvas id="firstChart"></canvas>
+  </div>
+</div>
+
+<div class="container-dashboard">
+  <canvas id="secondChart"></canvas>
+</div>
+
+<div class="container-dashboard">
+  <canvas id="firstLineChart"></canvas>
+</div>
+
+<div class="container-dashboard container-dashboard-circle">
+  <canvas id="firstCircle"></canvas>
+</div>
+
+<div class="container-dashboard container-dashboard-circle">
+  <canvas id="secondCircle"></canvas>
+</div>
+
+@code {
+  protected override async Task OnAfterRenderAsync(bool firstRender)
+  {
+    if (firstRender)
+    {
+        await InvokeAsync(() => GenerateChart());
+    }
+  }
+
+  private void GenerateChart()
+  {
+    JS.InvokeVoidAsync("firstBarGraph", "firstChart", "line");
+    JS.InvokeVoidAsync("secondBarGraph", "secondChart", "bar");
+
+    JS.InvokeVoidAsync("firstLine", "firstLineChart", "line");
+
+    JS.InvokeVoidAsync("firstCircle", "firstCircle", "doughnut");
+
+    JS.InvokeVoidAsync("secondCircle", "secondCircle", "pie");
+  }
+}

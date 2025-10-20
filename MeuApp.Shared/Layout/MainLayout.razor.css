@@ -6,11 +6,16 @@
 
 main {
   flex: 1;
+  padding-top: 72px;
+
+  @media (min-width: 641px) {
+    padding-top: 0;
+  }
 }
 
-.sidebar {
-  background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #d6d6d6 70%);
-}
+/* .sidebar {
+  background-image: linear-gradient(180deg, #052767 0%, #d6d6d6 160%);
+} */
 
 .top-row {
   background-color: #f7f7f7;
@@ -49,7 +54,7 @@ main {
   }
 }
 
-@media (min-width: 641px) {
+@media (min-width: 768px) {
   .page {
     flex-direction: row;
   }
@@ -73,11 +78,11 @@ main {
     width: 0;
   }
 
-  .top-row,
+  /* .top-row,
   article {
     padding-left: 2rem !important;
     padding-right: 1.5rem !important;
-  }
+  } */
 }
 
 #blazor-error-ui {

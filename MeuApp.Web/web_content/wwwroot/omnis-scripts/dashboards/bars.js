@@ -26,7 +26,7 @@ function firstBarGraph(canvasId, chartType) {
         },
         {
           data: dados.map((element) => element.count),
-          label: 'Acquisitions by year',
+          label: 'Vendas',
           backgroundColor: '#26b04f82',
           borderWidth: 1,
           borderColor: 'green',
@@ -38,6 +38,11 @@ function firstBarGraph(canvasId, chartType) {
     },
     options: {
       responsive: true,
+      plugins: {
+        legend: {
+          display: false,
+        },
+      },
     },
   });
 }

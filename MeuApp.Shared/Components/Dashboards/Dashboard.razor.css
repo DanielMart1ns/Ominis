@@ -1,0 +1,11 @@
+.container-dashboard {
+  max-width: 780px;
+  width: 100%;
+  margin-bottom: 28px;
+}
+
+.container-dashboard-circle {
+  margin: 0 auto 28px;
+  max-height: 380px;
+  height: 100%;
+}
