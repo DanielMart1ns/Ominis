@@ -1,6 +1,4 @@
 function firstBarGraph(canvasId, chartType) {
-  console.log('entrou 1');
-
   const dados = [
     { year: 'Dia 1', count: 10 },
     { year: 'Dia 2', count: 20 },
